@@ -168,7 +168,7 @@
 //               </div>
 //             </div>
 //           </div>
-          
+
 //         </div>
 //       </div>
 //     </div>
@@ -176,7 +176,6 @@
 // };
 
 // export default ContactAddressMainPage;
-
 
 import React, { useState } from "react";
 import { MapPin, Phone, Mail, Send, Loader2 } from "lucide-react";
@@ -215,7 +214,8 @@ const ContactUsPage = ({ courseName = "" }) => {
     setStatus("loading");
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      // const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch("https://api.neeltechnologies.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -227,7 +227,7 @@ const ContactUsPage = ({ courseName = "" }) => {
 
       if (response.ok) {
         setResponseMessage(
-          "✅ Email sent successfully! We will contact you within 24 hours."
+          "✅ Email sent successfully! We will contact you within 24 hours.",
         );
 
         setFormData({
@@ -263,18 +263,17 @@ const ContactUsPage = ({ courseName = "" }) => {
             Get In Touch With Us
           </h2>
           <p className="text-xl text-gray-1000 font-semibold max-w-2xl mx-auto">
-            Have questions about our courses? We're here to help you with your learning journey.
+            Have questions about our courses? We're here to help you with your
+            learning journey.
           </p>
           <div className="w-28 h-1 bg-blue-600 mx-auto mt-5"></div>
         </div>
 
         {/* ================= MAIN SECTION ================= */}
         <div className="flex flex-col lg:flex-row gap-10">
-
           {/* ================= LEFT SIDE - FORM ================= */}
           <div className="flex-1 bg-[#0694d115] p-10 rounded-2xl shadow-sm border border-blue-50">
             <form onSubmit={handleSubmit} className="space-y-6">
-
               <input
                 type="text"
                 name="fullName"
@@ -313,21 +312,51 @@ const ContactUsPage = ({ courseName = "" }) => {
                   className={`${inputClasses} appearance-none cursor-pointer`}
                 >
                   <option value="--Select Course--">--Select Course--</option>
-                  <option value="MCSE Training Certification Course">MCSE Training Certification Course</option>
-                  <option value="LINUX Training Certification Course">LINUX Training Certification Course</option>
-                  <option value="CCNA Training Certification Course">CCNA Training Certification Course</option>
-                  <option value="POWERSHELL Training Certification Course">POWERSHELL Training Certification Course</option>
-                  <option value="PYTHON Training Certification Course">PYTHON Training Certification Course</option>
-                  <option value="AZURE Training Certification Course">AZURE Training Certification Course</option>
-                  <option value="AWS Training Certification Course">AWS Training Certification Course</option>
-                  <option value="GCP Training Certification Course">GCP Training Certification Course</option>
-                  <option value="AWS-DEVOPS Training Certification Course">AWS-DEVOPS Training Certification Course</option>
-                  <option value="AZURE-DEVOPS Training Certification Course">AZURE-DEVOPS Training Certification Course</option>
-                  <option value="CYBER SECURITY Training Certification Course">CYBER SECURITY Training Certification Course</option>
-                  <option value="Intune Training Certification Course">Intune Training Certification Course</option>
-                  <option value="O365 Training Certification Course">O365 Training Certification Course</option>
-                  <option value="Entra ID Training Certification Course">Entra ID Training Certification Course</option>
-                  <option value="Azure Sentinel Training Certification Course">Azure Sentinel Training Certification Course</option>
+                  <option value="MCSE Training Certification Course">
+                    MCSE Training Certification Course
+                  </option>
+                  <option value="LINUX Training Certification Course">
+                    LINUX Training Certification Course
+                  </option>
+                  <option value="CCNA Training Certification Course">
+                    CCNA Training Certification Course
+                  </option>
+                  <option value="POWERSHELL Training Certification Course">
+                    POWERSHELL Training Certification Course
+                  </option>
+                  <option value="PYTHON Training Certification Course">
+                    PYTHON Training Certification Course
+                  </option>
+                  <option value="AZURE Training Certification Course">
+                    AZURE Training Certification Course
+                  </option>
+                  <option value="AWS Training Certification Course">
+                    AWS Training Certification Course
+                  </option>
+                  <option value="GCP Training Certification Course">
+                    GCP Training Certification Course
+                  </option>
+                  <option value="AWS-DEVOPS Training Certification Course">
+                    AWS-DEVOPS Training Certification Course
+                  </option>
+                  <option value="AZURE-DEVOPS Training Certification Course">
+                    AZURE-DEVOPS Training Certification Course
+                  </option>
+                  <option value="CYBER SECURITY Training Certification Course">
+                    CYBER SECURITY Training Certification Course
+                  </option>
+                  <option value="Intune Training Certification Course">
+                    Intune Training Certification Course
+                  </option>
+                  <option value="O365 Training Certification Course">
+                    O365 Training Certification Course
+                  </option>
+                  <option value="Entra ID Training Certification Course">
+                    Entra ID Training Certification Course
+                  </option>
+                  <option value="Azure Sentinel Training Certification Course">
+                    Azure Sentinel Training Certification Course
+                  </option>
                 </select>
               </div>
 
@@ -380,7 +409,6 @@ const ContactUsPage = ({ courseName = "" }) => {
               </h2>
 
               <div className="space-y-8 text-lg">
-
                 <div className="flex gap-4">
                   <MapPin size={22} className="text-blue-600 mt-1" />
                   <div>
@@ -420,11 +448,9 @@ const ContactUsPage = ({ courseName = "" }) => {
                     </a>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

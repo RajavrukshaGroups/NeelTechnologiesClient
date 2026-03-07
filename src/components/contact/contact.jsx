@@ -31,14 +31,15 @@ const ContactUsPage = ({ courseName }) => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/contact",
+        // "http://localhost:5000/api/contact",
+        "https://api.neeltechnologies.com/contact",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        }
+        },
       );
 
       const data = await response.json();
@@ -58,7 +59,6 @@ const ContactUsPage = ({ courseName }) => {
         platform: "",
         message: "",
       });
-
     } catch (err) {
       setError(err.message || "Failed to submit request.");
     } finally {
@@ -76,34 +76,31 @@ const ContactUsPage = ({ courseName }) => {
           </h2>
 
           <div className="flex justify-center gap-6 mt-6">
+            {/* Email Button */}
+            <a
+              href="mailto:admin@neeltechnologies.net"
+              className="flex items-center gap-2 border-2 border-blue-500 text-blue-600 px-6 py-2 rounded-full hover:bg-blue-50 transition"
+            >
+              <Mail size={18} />
+              Email
+            </a>
 
-          {/* Email Button */}
-          <a
-            href="mailto:admin@neeltechnologies.net"
-            className="flex items-center gap-2 border-2 border-blue-500 text-blue-600 px-6 py-2 rounded-full hover:bg-blue-50 transition"
-          >
-            <Mail size={18} />
-            Email
-          </a>
-
-          {/* WhatsApp Button */}
-          <a
-            href="https://wa.me/916361866299"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 border-2 border-green-500 text-green-600 px-6 py-2 rounded-full hover:bg-green-50 transition"
-          >
-            <MessageCircle size={18} />
-            WhatsApp
-          </a>
-
-        </div>
+            {/* WhatsApp Button */}
+            <a
+              href="https://wa.me/916361866299"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 border-2 border-green-500 text-green-600 px-6 py-2 rounded-full hover:bg-green-50 transition"
+            >
+              <MessageCircle size={18} />
+              WhatsApp
+            </a>
+          </div>
         </div>
 
         {/* FORM CARD */}
         <div className="bg-white rounded-3xl shadow-xl p-10 border border-blue-200">
           <form onSubmit={submitHandler} className="space-y-8">
-
             {/* ROW 1 */}
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -209,9 +206,7 @@ const ContactUsPage = ({ courseName }) => {
             )}
 
             {error && (
-              <p className="text-red-600 font-medium text-center">
-                {error}
-              </p>
+              <p className="text-red-600 font-medium text-center">{error}</p>
             )}
 
             {/* SUBMIT */}
@@ -224,7 +219,6 @@ const ContactUsPage = ({ courseName }) => {
                 {loading ? "Submitting..." : "Submit Request"}
               </button>
             </div>
-
           </form>
         </div>
       </div>
